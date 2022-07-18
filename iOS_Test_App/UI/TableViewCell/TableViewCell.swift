@@ -23,7 +23,18 @@ class TableViewCell: UITableViewCell {
             titleLabel.text = post.title
             previewLabel.text = post.preview_text
             likesLabel.text = String(post.likes_count)
+
+            titleLabel.sizeToFit()
+            titleLabel.numberOfLines = 1
+            previewLabel.sizeToFit()
+            
+            if textButton.isSelected == false {
+                previewLabel.numberOfLines = 2
+            } else if textButton.isSelected == true {
+                previewLabel.numberOfLines = 0
+                print("gggg")
+                textButton.setTitle("FGGH", for: .normal)
+            }
         }
     }
-
 }

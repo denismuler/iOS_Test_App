@@ -22,6 +22,7 @@ class PostViewController: UIViewController {
 
         Networking.shared.delegate = self
         Networking.shared.fetchPostsList()
+
     }
 }
 
@@ -37,6 +38,11 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
         return cell
     }
+    
+    private func tableView(tableView: UITableView,
+        heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 }
 
 extension PostViewController: NetworkingDelegate {
@@ -48,6 +54,6 @@ extension PostViewController: NetworkingDelegate {
             }
             self.tableView.reloadData()
         }
-        print(postsList)
+//        print(postsList)
     }
 }

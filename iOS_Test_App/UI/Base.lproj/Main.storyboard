@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Post View Controller-->
+        <!--title-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PostViewController" customModule="iOS_Test_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,7 +30,7 @@
                             <constraint firstItem="kOB-Mb-uPp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="qAU-OO-cO5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="9Ud-zw-Iy8"/>
+                    <navigationItem key="navigationItem" title="title" id="9Ud-zw-Iy8"/>
                     <connections>
                         <outlet property="tableView" destination="kOB-Mb-uPp" id="swf-T2-Rjr"/>
                         <segue destination="PX6-5H-pqP" kind="show" id="Wpg-ig-ITY"/>
