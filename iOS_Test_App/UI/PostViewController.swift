@@ -11,49 +11,60 @@ class PostViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var post: PostsList?
+    var posts: [Posts] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "postTableViewCell")
+        tableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "postTableViewCell")
 
         Networking.shared.delegate = self
         Networking.shared.fetchPostsList()
-
     }
 }
 
 extension PostViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return post?.posts.count ?? 0
+      posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "postTableViewCell", for: indexPath as IndexPath) as! TableViewCell
-        cell.post = post?.posts[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "postTableViewCell", for: indexPath as IndexPath) as! PostTableViewCell
+        cell.post = posts[indexPath.row]
+      cell.delegate = self
         cell.selectionStyle = .none
         return cell
     }
     
     private func tableView(tableView: UITableView,
         heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "postSegue", sender: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 extension PostViewController: NetworkingDelegate {
-    func showPosts(with postsList: PostsList) {
-        self.post = postsList
+    func showPosts(with posts: [Posts]) {
+        self.posts = posts
         DispatchQueue.main.async { [weak self] in
             guard let self = self else {
                 return
             }
             self.tableView.reloadData()
         }
-//        print(postsList)
     }
+}
+
+extension PostViewController: PostTableViewCellDelegate {
+  func expandTap() {
+    tableView.beginUpdates()
+    tableView.endUpdates()
+  }
 }

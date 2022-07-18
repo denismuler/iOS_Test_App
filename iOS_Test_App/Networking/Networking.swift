@@ -8,7 +8,7 @@
 import Foundation
 
 protocol NetworkingDelegate {
-    func showPosts(with postsList: PostsList)
+    func showPosts(with posts: [Posts])
 }
 
 class Networking {
@@ -18,9 +18,7 @@ class Networking {
     private var decoder = JSONDecoder()
     
     var delegate: NetworkingDelegate?
-    
-    //    private init() {}
-    
+        
     func fetchPostsList() {
         guard let url = URL(string: "https://raw.githubusercontent.com/anton-natife/jsons/master/api/main.json") else {
             return
@@ -28,10 +26,10 @@ class Networking {
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {
-                if let files = self.decodeFiles(with: data) {
-                    self.delegate?.showPosts(with: files)
+              if let postList = self.decodeFiles(with: data) {
+                  self.delegate?.showPosts(with: postList.posts)
                 } else {
-                    // Error
+                  print("Networking error")
                 }
             }
         }.resume()
@@ -39,33 +37,11 @@ class Networking {
     
     func decodeFiles(with data: Data) -> PostsList? {
         do {
-            let posts = try decoder.decode(PostsList.self, from: data)
-            print(posts)
-            return posts
+            return try decoder.decode(PostsList.self, from: data)
         } catch {
+            print("Response data structure was changed")
             return nil
         }
     }
     
-    //    func fetchPostsList(onCompletion: @escaping([Posts]) -> ()) {
-    //        let urlString = "https://raw.githubusercontent.com/anton-natife/jsons/master/api/main.json"
-    //        let url = URL(string: urlString)!
-    //
-    //        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-    //
-    //            guard let data = data else {
-    //                print("error data is nil")
-    //                return
-    //            }
-    //
-    //            guard let postsList = try? JSONDecoder().decode(PostsList.self, from: data) else {
-    //                print("couldn't decode JSON")
-    //                return
-    //            }
-    //
-    //            print(postsList.posts)
-    //        }
-    //        task.resume()
-    //
-    //    }
 }

@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" restorationIdentifier="postTableViewCell" id="i5M-Pr-FkT" customClass="TableViewCell" customModule="iOS_Test_App" customModuleProvider="target">
+        <view contentMode="scaleToFill" restorationIdentifier="postTableViewCell" id="i5M-Pr-FkT" customClass="PostTableViewCell" customModule="iOS_Test_App" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="499" height="243"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -51,12 +51,17 @@
                         <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                         <color key="baseForegroundColor" systemColor="secondarySystemBackgroundColor"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="textButtonPressed:" destination="i5M-Pr-FkT" eventType="touchUpInside" id="1yt-yv-W86"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kVy-Yd-mQg" secondAttribute="trailing" constant="25" id="1Pd-3n-S7K"/>
                 <constraint firstItem="QfO-7H-ufQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="5to-Lg-l4T"/>
+                <constraint firstAttribute="bottom" secondItem="Weh-E5-Q2m" secondAttribute="bottom" constant="20" symbolic="YES" id="6zI-fR-3dj"/>
                 <constraint firstAttribute="trailing" secondItem="BQZ-d9-Y4D" secondAttribute="trailing" constant="25" id="9qB-ek-ScG"/>
                 <constraint firstItem="Weh-E5-Q2m" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="GLR-bg-Rpx"/>
                 <constraint firstItem="Weh-E5-Q2m" firstAttribute="top" secondItem="kVy-Yd-mQg" secondAttribute="bottom" constant="12" id="Ic1-89-4Uz"/>
@@ -69,7 +74,7 @@
                 <constraint firstItem="BQZ-d9-Y4D" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="lhM-Ak-fj4"/>
                 <constraint firstItem="kVy-Yd-mQg" firstAttribute="top" secondItem="QfO-7H-ufQ" secondAttribute="bottom" constant="7" id="lk2-GQ-iws"/>
                 <constraint firstItem="BQZ-d9-Y4D" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="oZi-2K-Ngf"/>
-                <constraint firstItem="kVy-Yd-mQg" firstAttribute="leading" secondItem="OFX-0A-QLe" secondAttribute="trailing" constant="381.5" id="tQD-Li-Sxg"/>
+                <constraint firstItem="kVy-Yd-mQg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OFX-0A-QLe" secondAttribute="trailing" constant="100" id="tQD-Li-Sxg"/>
                 <constraint firstItem="QfO-7H-ufQ" firstAttribute="top" secondItem="BQZ-d9-Y4D" secondAttribute="bottom" constant="8" id="waQ-gc-cWO"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
