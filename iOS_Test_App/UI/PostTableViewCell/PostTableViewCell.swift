@@ -8,11 +8,11 @@
 import UIKit
 
 protocol PostTableViewCellDelegate {
-  func expandTap()
+    func expandTap()
 }
 
 class PostTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var previewLabel: UILabel!
     @IBOutlet weak var likesLabel: UILabel!
@@ -23,7 +23,7 @@ class PostTableViewCell: UITableViewCell {
     var delegate: PostTableViewCellDelegate?
     
     @IBAction func textButtonPressed(_ sender: Any) {
-      isExpended = !isExpended
+        isExpended = !isExpended
         if isExpended {
             previewLabel.numberOfLines = 0
             textButton.setTitle("Collapse", for: .normal)
@@ -34,9 +34,8 @@ class PostTableViewCell: UITableViewCell {
             previewLabel.sizeToFit()
         }
         updateLayout()
-//        self.post = post
-        
     }
+    
     var post: Posts? {
         didSet {
             guard let post = post else {
@@ -46,13 +45,17 @@ class PostTableViewCell: UITableViewCell {
             previewLabel.text = post.preview_text
             likesLabel.text = String(post.likes_count)
             timeLabel.text = post.timeshamp.timeshampToDateString()
-
+            
             titleLabel.sizeToFit()
             titleLabel.numberOfLines = 1
             
             previewLabel.sizeToFit()
             configureExpandButton()
         }
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
     }
     
     private func configureExpandButton() {
@@ -65,24 +68,13 @@ class PostTableViewCell: UITableViewCell {
             textButton.setTitle("Expand", for: .normal)
         }
         previewLabel.text = post.preview_text
-      if checkNeededReadMoreButton() {
-        textButton.isHidden = true
-        let height: CGFloat = 15 + titleLabel.frame.height + 8 + previewLabel.frame.height + 7 + likesLabel.frame.height + 12
-        heightAnchor.constraint(equalToConstant: height).isActive = true
-        translatesAutoresizingMaskIntoConstraints = false
-        updateLayout()
-      } else {
-        textButton.isHidden = false
-      }
-      
     }
     
-    private func checkNeededReadMoreButton() -> Bool{
+    private func checkNeededReadMoreButton() -> Bool {
         return previewLabel.maxNumberOfLines <= 2
     }
     
     private func updateLayout() {
-        
         setNeedsLayout()
         layoutSubviews()
         layoutIfNeeded()

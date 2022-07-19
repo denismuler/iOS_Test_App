@@ -26,7 +26,7 @@ class Networking {
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {
-              if let postList = self.decodeFiles(with: data) {
+              if let postList = self.decodePosts(with: data) {
                   self.delegate?.showPosts(with: postList.posts)
                 } else {
                   print("Networking error")
@@ -35,7 +35,7 @@ class Networking {
         }.resume()
     }
     
-    func decodeFiles(with data: Data) -> PostsList? {
+    func decodePosts(with data: Data) -> PostsList? {
         do {
             return try decoder.decode(PostsList.self, from: data)
         } catch {
@@ -44,4 +44,23 @@ class Networking {
         }
     }
     
+     func getPost(id: Int, completion: @escaping (Result<DetailPost, Error>) -> Void) {
+      guard let url = URL(string: "https://raw.githubusercontent.com/anton-natife/jsons/master/api/posts/\(id).json") else { return }
+      
+      let task = URLSession.shared.dataTask(with: url) { [weak self] data, _, error  in
+        guard let self = self else { return }
+        if let error = error {
+          completion(.failure(error))
+        } else if let safeData = data {
+          do {
+            let result = try self.decoder.decode(DetailPostList.self, from: safeData)
+            completion(.success(result.post))
+          }
+          catch {
+            completion(.failure(error))
+          }
+        }
+      }
+      task.resume()
+    }
 }

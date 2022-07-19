@@ -7,14 +7,15 @@
 
 import Foundation
 
-struct DetailPostsList: Decodable {
-    let posts: [DetailPosts]
+struct DetailPostList: Decodable {
+    let post: DetailPost
 }
 
-struct DetailPosts: Decodable {
+struct DetailPost: Decodable {
     var postId: Int
     var timeshamp: Int
     var title: String?
-    var preview_text: String?
+    var text: String?
     var likes_count: Int
+    var postImage: String?
 }
