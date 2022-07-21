@@ -59,7 +59,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="550"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sLO-46-9g2" userLabel="content view">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="550"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="526"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i56-9J-X7Y">
                                                 <rect key="frame" x="0.0" y="8" width="414" height="350"/>
@@ -81,7 +81,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="❤️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="li2-dg-Tf1">
-                                                <rect key="frame" x="20" y="503" width="23" height="21"/>
+                                                <rect key="frame" x="20" y="503" width="23" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -104,14 +104,14 @@
                                             <constraint firstItem="i56-9J-X7Y" firstAttribute="leading" secondItem="sLO-46-9g2" secondAttribute="leading" id="0Mp-bA-0k5"/>
                                             <constraint firstItem="jSO-Sf-JGF" firstAttribute="top" secondItem="i56-9J-X7Y" secondAttribute="bottom" constant="8" id="B9a-gG-oux"/>
                                             <constraint firstItem="li2-dg-Tf1" firstAttribute="top" secondItem="HIE-Ar-8hr" secondAttribute="bottom" constant="39.5" id="CSC-g4-guJ"/>
-                                            <constraint firstAttribute="bottom" secondItem="HIE-Ar-8hr" secondAttribute="bottom" constant="429.5" id="Fh7-xH-Bix"/>
+                                            <constraint firstAttribute="bottom" secondItem="HIE-Ar-8hr" secondAttribute="bottom" constant="75" id="Fh7-xH-Bix"/>
                                             <constraint firstItem="i56-9J-X7Y" firstAttribute="centerX" secondItem="HIE-Ar-8hr" secondAttribute="centerX" id="LKh-Mk-pUw"/>
                                             <constraint firstItem="li2-dg-Tf1" firstAttribute="leading" secondItem="sLO-46-9g2" secondAttribute="leading" constant="20" id="PaX-iE-aM1"/>
                                             <constraint firstItem="i56-9J-X7Y" firstAttribute="centerX" secondItem="sLO-46-9g2" secondAttribute="centerX" id="QRv-Hv-Z1z"/>
+                                            <constraint firstItem="li2-dg-Tf1" firstAttribute="top" secondItem="HIE-Ar-8hr" secondAttribute="bottom" constant="39.5" id="Vob-Vl-QzJ"/>
                                             <constraint firstItem="89P-Ru-HHE" firstAttribute="top" secondItem="HIE-Ar-8hr" secondAttribute="bottom" constant="39.5" id="Z1R-L4-Fuv"/>
                                             <constraint firstAttribute="trailing" secondItem="HJY-dg-m1s" secondAttribute="trailing" constant="20" id="c9r-RM-jla"/>
                                             <constraint firstItem="HJY-dg-m1s" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="89P-Ru-HHE" secondAttribute="trailing" constant="100" id="g7T-Zu-vyJ"/>
-                                            <constraint firstAttribute="bottom" secondItem="li2-dg-Tf1" secondAttribute="bottom" constant="369" id="log-1n-s9L"/>
                                             <constraint firstItem="i56-9J-X7Y" firstAttribute="top" secondItem="sLO-46-9g2" secondAttribute="topMargin" id="lq5-9E-oiL"/>
                                             <constraint firstItem="HJY-dg-m1s" firstAttribute="top" secondItem="HIE-Ar-8hr" secondAttribute="bottom" constant="39.5" id="ofk-ep-3Hq"/>
                                             <constraint firstItem="HIE-Ar-8hr" firstAttribute="leading" secondItem="sLO-46-9g2" secondAttribute="leading" constant="20" id="veu-wT-40v"/>
@@ -153,7 +153,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYe-6Y-9e0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2248" y="84"/>
+            <point key="canvasLocation" x="2247.826086956522" y="83.705357142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1aa-B4-DEq">

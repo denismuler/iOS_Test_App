@@ -35,6 +35,8 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="❤️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Nt-hB-Chc">
                                     <rect key="frame" x="0.0" y="4.5" width="19" height="16"/>
                                     <constraints>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="0yp-Uf-SRg"/>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="18" id="66U-WE-vey"/>
                                         <constraint firstAttribute="height" constant="16" id="BXW-4y-G8a"/>
                                         <constraint firstAttribute="width" constant="19" id="m1z-ix-2ht"/>
                                     </constraints>
