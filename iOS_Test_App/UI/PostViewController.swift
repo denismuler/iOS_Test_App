@@ -72,8 +72,9 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postTableViewCell", for: indexPath as IndexPath) as! PostTableViewCell
+      cell.delegate = self
+
         cell.post = posts[indexPath.row]
-        cell.delegate = self
         cell.selectionStyle = .none
         return cell
     }
@@ -82,13 +83,13 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
                            heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
-        
+  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.lastSelectedId = posts[indexPath.row].postId
         performSegue(withIdentifier: "postSegue", sender: nil)
     }
 }
-
+// MARK: - NetworkingDelegate
 extension PostViewController: NetworkingDelegate {
     func showPosts(with posts: [Posts]) {
         self.posts = posts
@@ -100,7 +101,7 @@ extension PostViewController: NetworkingDelegate {
         }
     }
 }
-
+// MARK: - PostTableViewCellDelegate
 extension PostViewController: PostTableViewCellDelegate {
     func expandTap() {
         tableView.beginUpdates()

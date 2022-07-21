@@ -13,6 +13,7 @@ protocol PostTableViewCellDelegate {
 
 class PostTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var parentStackView: UIStackView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var previewLabel: UILabel!
     @IBOutlet weak var likesLabel: UILabel!
@@ -44,7 +45,7 @@ class PostTableViewCell: UITableViewCell {
             titleLabel.text = post.title
             previewLabel.text = post.preview_text
             likesLabel.text = String(post.likes_count)
-            timeLabel.text = post.timeshamp.timeshampToDateString()
+            timeLabel.text = "\(configureTimeLabel(with: post))"
             
             titleLabel.sizeToFit()
             titleLabel.numberOfLines = 1
@@ -52,10 +53,6 @@ class PostTableViewCell: UITableViewCell {
             previewLabel.sizeToFit()
             configureExpandButton()
         }
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
     
     private func configureExpandButton() {
@@ -68,7 +65,23 @@ class PostTableViewCell: UITableViewCell {
             textButton.setTitle("Expand", for: .normal)
         }
         previewLabel.text = post.preview_text
-        textButton.isHidden = checkNeededExpandButton()
+      if checkNeededExpandButton() {
+        textButton.isHidden = true
+        parentStackView.removeArrangedSubview(textButton)
+        updateLayout()
+      } else {
+        textButton.isHidden = false
+        parentStackView.addArrangedSubview(textButton)
+        updateLayout()
+      }
+    }
+    
+    private func configureTimeLabel(with post: Posts) -> String {
+        let exampleDate = Date(timeIntervalSince1970: TimeInterval(post.timeshamp))
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .full
+        let relativeDate = formatter.localizedString(for: exampleDate, relativeTo: Date.now)
+        return relativeDate
     }
     
     private func checkNeededExpandButton() -> Bool {

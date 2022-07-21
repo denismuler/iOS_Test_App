@@ -11,10 +11,10 @@ extension Int {
     func timeshampToDateString() -> String {
         let date = Date(timeIntervalSince1970: Double(self))
         let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(abbreviation: "GMT+2")
+        dateFormatter.timeZone = .current
         dateFormatter.locale = NSLocale.current
-        dateFormatter.dateFormat = "HH:mm  MM/dd/yyyy"
-        let strDate = dateFormatter.string(from: date)
-        return strDate
-    }
+        dateFormatter.dateFormat = " dd/MM/yyyy"
+        let postDate = dateFormatter.string(from: date)
+        return postDate
+    } 
 }
