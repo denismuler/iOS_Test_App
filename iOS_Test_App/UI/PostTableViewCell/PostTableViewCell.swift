@@ -68,9 +68,10 @@ class PostTableViewCell: UITableViewCell {
             textButton.setTitle("Expand", for: .normal)
         }
         previewLabel.text = post.preview_text
+        textButton.isHidden = checkNeededExpandButton()
     }
     
-    private func checkNeededReadMoreButton() -> Bool {
+    private func checkNeededExpandButton() -> Bool {
         return previewLabel.maxNumberOfLines <= 2
     }
     

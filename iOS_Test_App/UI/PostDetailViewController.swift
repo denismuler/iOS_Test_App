@@ -14,8 +14,7 @@ class PostDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var previewLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-    
-    private var imagesString = String()
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var id: Int! {
         didSet {
@@ -27,9 +26,16 @@ class PostDetailViewController: UIViewController, UIScrollViewDelegate {
                 case .success(let post):
                     self.post = post
                 case .failure(let error):
-                    let alert = UIAlertController()
-                    // error
+                    let alert = UIAlertController(title: "error", message: error.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(.init(title: "OK", style: .default, handler: { [weak self] _ in
+                        guard let self = self else {
+                            return
+                        }
+                        self.dismiss(animated: true)
+                    }))
+                    self.present(alert, animated: true)
                 }
+                                    
             }
         }
     }
@@ -39,23 +45,15 @@ class PostDetailViewController: UIViewController, UIScrollViewDelegate {
             guard let post = post else {
                 return
             }
-        
+            
             DispatchQueue.main.async {
                 self.previewLabel.text = post.text
-//                self.previewLabel.sizeToFit()
+                self.previewLabel.sizeToFit()
                 self.dateLabel?.text = post.timeshamp.timeshampToDateString()
                 self.likesLabel?.text = String(post.likes_count)
                 self.titleLabel?.text = post.title
-                
-
+                self.imageView.loadFrom(URLAddress: post.postImage!)
             }
-            
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
 }
-

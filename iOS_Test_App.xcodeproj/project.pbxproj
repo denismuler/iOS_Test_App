@@ -10,6 +10,7 @@
 		CA1D044A28843C690061FAD6 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1D044928843C690061FAD6 /* Networking.swift */; };
 		CA1D044E28843C730061FAD6 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1D044C28843C730061FAD6 /* PostTableViewCell.swift */; };
 		CA1D044F28843C730061FAD6 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA1D044D28843C730061FAD6 /* PostTableViewCell.xib */; };
+		CA33E436288862E40010C3B4 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA33E435288862E40010C3B4 /* UIImageView.swift */; };
 		CA6499172885B65F00FFD3D1 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6499162885B65F00FFD3D1 /* Int.swift */; };
 		CA64991A2885C51900FFD3D1 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6499192885C51900FFD3D1 /* PostDetailViewController.swift */; };
 		CA74C2E32885905400F3C7A4 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA74C2E22885905400F3C7A4 /* UILabel.swift */; };
@@ -27,6 +28,7 @@
 		CA1D044928843C690061FAD6 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		CA1D044C28843C730061FAD6 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		CA1D044D28843C730061FAD6 /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		CA33E435288862E40010C3B4 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		CA6499162885B65F00FFD3D1 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		CA6499192885C51900FFD3D1 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		CA74C2E22885905400F3C7A4 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			children = (
 				CA74C2E22885905400F3C7A4 /* UILabel.swift */,
 				CA6499162885B65F00FFD3D1 /* Int.swift */,
+				CA33E435288862E40010C3B4 /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				CA74C2E32885905400F3C7A4 /* UILabel.swift in Sources */,
 				CA9E8E24288438E100A0154F /* PostViewController.swift in Sources */,
 				CA64991A2885C51900FFD3D1 /* PostDetailViewController.swift in Sources */,
+				CA33E436288862E40010C3B4 /* UIImageView.swift in Sources */,
 				CA9E8E20288438E100A0154F /* AppDelegate.swift in Sources */,
 				CA9E8E22288438E100A0154F /* SceneDelegate.swift in Sources */,
 				CA1D044A28843C690061FAD6 /* Networking.swift in Sources */,
